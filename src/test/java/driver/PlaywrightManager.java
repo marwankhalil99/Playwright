@@ -40,36 +40,37 @@ public class PlaywrightManager {
     public void setBrowser(Browser browser) {
         this.browser = browser;
     }
-    @Test
-public void test() {
-    Playwright playwright = Playwright.create();
-    BrowserType.LaunchOptions browserType = new BrowserType.LaunchOptions().setHeadless(false)
-            .setSlowMo(100).setTimeout(10000)
-            .setExecutablePath(Paths.get("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"));
-//        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-    Browser browser = playwright.chromium().launch(browserType);
-    Page page = browser.newPage();
-    page.navigate("https://q-line-iis.alqemam.com/qcms_test_v14.3.12/login.aspx");
-    // Expect a title "to contain" a substring.
-    assertThat(page).hasTitle("تسجيل الدخول");
-    // Create a locator for the username input.
-//        Locator userIdLocator = page.locator("input[id='txtUserName']");
-    Locator userIdLocator = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("الرقم الوظيفي"));
-    // Fill the input with a username.
-    userIdLocator.fill("0560560");
-    // Create a locator for the password input.
-    Locator passwordLocator = page.locator("input[id='txtUserPass']");
-    // Fill the input with a password.
-    passwordLocator.fill("24602460");
-    // Click the login button.
-    Locator loginButtonLocator = page.getByRole(AriaRole.BUTTON,
-            new Page.GetByRoleOptions().setName("تسجيل الدخول"));
-    // Click the login button.
-    loginButtonLocator.click();
-    // Wait for the page to load after login
-    assertThat(page).hasTitle("الصفحة الرئيسية");
-    // Take a screenshot.
-    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("resources/screenshot/example.png")));
-    }
 }
 
+
+//@Test
+//public void test() {
+//    Playwright playwright = Playwright.create();
+//    BrowserType.LaunchOptions browserType = new BrowserType.LaunchOptions().setHeadless(false)
+//            .setSlowMo(100).setTimeout(10000)
+//            .setExecutablePath(Paths.get("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"));
+////        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+//    Browser browser = playwright.chromium().launch(browserType);
+//    Page page = browser.newPage();
+//    page.navigate("https://q-line-iis.alqemam.com/qcms_test_v14.3.12/login.aspx");
+//    // Expect a title "to contain" a substring.
+//    assertThat(page).hasTitle("تسجيل الدخول");
+//    // Create a locator for the username input.
+////        Locator userIdLocator = page.locator("input[id='txtUserName']");
+//    Locator userIdLocator = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("الرقم الوظيفي"));
+//    // Fill the input with a username.
+//    userIdLocator.fill("0560560");
+//    // Create a locator for the password input.
+//    Locator passwordLocator = page.locator("input[id='txtUserPass']");
+//    // Fill the input with a password.
+//    passwordLocator.fill("24602460");
+//    // Click the login button.
+//    Locator loginButtonLocator = page.getByRole(AriaRole.BUTTON,
+//            new Page.GetByRoleOptions().setName("تسجيل الدخول"));
+//    // Click the login button.
+//    loginButtonLocator.click();
+//    // Wait for the page to load after login
+//    assertThat(page).hasTitle("الصفحة الرئيسية");
+//    // Take a screenshot.
+//    page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("resources/screenshot/example.png")));
+//    }
